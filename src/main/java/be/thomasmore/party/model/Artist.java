@@ -18,6 +18,14 @@ public class Artist {
     public Artist() {
     }
 
+    public Artist(String artistName, String linkMoreInfo, String genre, String bio, String portfolio) {
+        this.artistName = artistName;
+        this.linkMoreInfo = linkMoreInfo;
+        this.genre = genre;
+        this.bio = bio;
+        this.portfolio = portfolio;
+    }
+
     public int getId() {
         return id;
     }
