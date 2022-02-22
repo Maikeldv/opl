@@ -15,9 +15,9 @@ public class VenueController {
     @Autowired
     private VenueRepository venueRepository;
 
-    @GetMapping("/venuedetails/{id}")
-    public String venuedetails(Model model, @PathVariable int id) {
-
+    @GetMapping({"/venuedetails/{id}", "/venuedetails"})
+    public String venuedetails(Model model, @PathVariable(required = false) Integer id) {
+    if (id == null) return "venuedetails";
         //Venue venue = new Venue("Boesj", "https://www.facebook.com/boesjkammeree/", 100, false, true, false, false, "Mechelen", 1);
         Optional<Venue> venueFromDb = venueRepository.findById(id);
         //noinspection OptionalIsPresent
