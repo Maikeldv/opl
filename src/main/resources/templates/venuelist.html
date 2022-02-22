@@ -9,10 +9,11 @@
 <div th:replace="fragments/header :: header">Header</div>
 <div class="knop">
 <div><h1>Venues</h1></div>
-    <div >
-        <a class="buttonLook mediumButton" th:href="@{venuedetails/1}">venue1</a>
-        <a class="buttonLook mediumButton" th:href="@{venuedetails/2}">venue2</a>
-        <a class="buttonLook mediumButton" th:href="@{venuedetails/3}">venue3</a>
+    <div th:each ="venue : ${venues}">
+        <a class="buttonLook mediumButton"
+        th:href ="@{|/venuedetails/${venue.id}|}"
+        th:text ="${venue.venueName}">venue name </a>
+
     </div>
 </div>
 
