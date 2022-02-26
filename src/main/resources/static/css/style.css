@@ -205,5 +205,8 @@ a.linkLook:hover {
 .knop{
     padding: 10em;
 }
+.knopjes{
+    display: inline;
+}
 
 
