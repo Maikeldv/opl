@@ -12,11 +12,27 @@
     <div class ="knopjes">
     <p>Outdoor:</p>
     <a class="buttonLook menuButton" th:href="@{/venuelist/outdoor/yes}"
-       >yes </a>
+       th:classappend="actieve">yes </a>
     <a class="buttonLook menuButton" th:href="@{/venuelist/outdoor/no}"
-    >no </a>
+       th:classappend="actieve">no </a>
     <a class="buttonLook menuButton" th:href="@{/venuelist}"
-    >all </a>
+       th:classappend="actieve">all </a>
+        <p>Indoor:</p>
+        <a class="buttonLook menuButton" th:href="@{/venuelist/indoor/yes}"
+           th:classappend="actieve">yes </a>
+        <a class="buttonLook menuButton" th:href="@{/venuelist/indoor/no}"
+           th:classappend="actieve">no </a>
+        <a class="buttonLook menuButton" th:href="@{/venuelist}"
+           th:classappend="actieve">all </a>
+        <p>Size:</p>
+        <a class="buttonLook menuButton" th:href="@{/venuelist/capacity/small}"
+           th:classappend="actieve">S </a>
+        <a class="buttonLook menuButton" th:href="@{/venuelist/capacity/medium}"
+           th:classappend="actieve">M </a>
+        <a class="buttonLook menuButton" th:href="@{/venuelist/capacity/large}"
+           th:classappend="actieve">L </a>
+        <a class="buttonLook menuButton" th:href="@{/venuelist}"
+           th:classappend="actieve">all </a>
     </div>
     <div th:each ="venue : ${venues}">
         <a class="buttonLook mediumButton"

@@ -27,27 +27,74 @@ public class VenueController {
         }
         return "venuedetails";
     }
+
     @GetMapping("/venuelist")
+
     public String venuelist(Model model) {
         final Iterable<Venue> allVenues = venueRepository.findAll();
         model.addAttribute("venues", allVenues);
 
         return "venuelist";
+
     }
     @GetMapping("/venuelist/outdoor/{buiten}")
     public String venuelistOutdoorYes(Model model,@PathVariable("buiten")boolean outdoor){
         if (outdoor){
             Iterable<Venue> venues = venueRepository.findByOutdoor(true);
             model.addAttribute("venues",venues);
+
             return"venuelist";
         }
         else{
             Iterable<Venue> venues = venueRepository.findByOutdoor(false);
             model.addAttribute("venues",venues);
+
             return"venuelist";
         }
 
     }
+    @GetMapping("/venuelist/indoor/{binnen}")
+    public String venuelistIndoorYes(Model model,@PathVariable("binnen")boolean indoor){
+        if (indoor){
+            Iterable<Venue> venues = venueRepository.findByIndoor(true);
+            model.addAttribute("venues",venues);
+
+            return"venuelist";
+        }
+        else{
+            Iterable<Venue> venues = venueRepository.findByIndoor(false);
+            model.addAttribute("venues",venues);
+
+            return"venuelist";
+        }
+
+    }
+//    @GetMapping("/venuelist/capacity/{sizeString}")
+//
+//    public String venuelistCapacity(Model model,@PathVariable("size")String sizeString, int size){
+//
+//        if (size<=200){
+//            sizeString = "small";
+//            Iterable<Venue> venues = venueRepository.findByCapacity(sizeString);
+//            model.addAttribute("venues",venues);
+//
+//            return"venuelist";
+//        }
+//        else if(size<=600){
+//            sizeString = "medium";
+//            Iterable<Venue> venues = venueRepository.findByCapacity(sizeString);
+//            model.addAttribute("venues",venues);
+//
+//            return"venuelist";
+//        }
+//        else{
+//            Iterable<Venue> venues = venueRepository.findByCapacity(sizeString);
+//            model.addAttribute("venues",venues);
+//            sizeString = "large";
+//            return"venuelist";
+//        }
+//
+//    }
 
 
 }
