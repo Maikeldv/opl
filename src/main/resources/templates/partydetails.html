@@ -1,0 +1,91 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+    <title>Let's Party!</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+
+
+<div class="row1">
+    <div class="row1content" th:if="${parties}">
+
+        <div th:each="party:${parties}">
+            <a class="buttonLook mediumButton"
+               th:href="@{|/admin/partyedit/${parties.id}|}"
+               >edit</a>
+        </div>
+
+
+
+
+        <h2 th:text="${parties.getName()}">partydetails</h2>
+
+        <div class="venueinfo">
+            <div class="infoLine">
+                <div class="infoLineName"></div>
+                <div class="infoLineValue" th:text="${parties.getDate()}"></div>
+                <a class="linkLook"
+                   th:href="@{|/venuedetails/${parties.getVenue().getId()}}"
+                   th:text="${parties.getVenue().venueName}">venue name</a>
+            </div>
+        </div>
+        <div class="infoLine">
+            <div class="infoLineName">where:</div>
+            <div class="infoLineValue" th:text="${parties.getVenue().getCity()+'('+parties.getVenue().getDistanceFromPublicTransportInKm()+'km from public transport)'}"></div>
+        </div>
+        <div class="row1content" th:if="${parties.getPriceInEur() != null || parties.getPricePresaleInEur() != null}">
+            <div class="infoLine">
+                <div class="infoLineName">price:</div>
+                <div class="infoLineValue" th:text="${parties.getPricePresaleInEur()} +'€ (presale)/' +${parties.getPriceInEur()}+' €'">price</div>
+            </div>
+        </div>
+        <div class="row1content" th:unless="${parties.getPriceInEur() != null || parties.getPricePresaleInEur() != null}">
+            <div class="infoLine">
+                Free party!
+
+            </div>
+            </div>
+
+            <div class="infoLine">
+                <div class="infoLineName">doors:</div>
+                <div class="infoLineValue" th:text="${parties.getDoors()}"></div>
+            </div>
+            <div class="row1content" th:if="${!parties.getExtraInfo().isBlank() }">
+            <div class="infoLine">
+                <div class="infoLineName">extra info:</div>
+                <div class="infoLineValue" th:text="${parties.getExtraInfo()}"></div>
+            </div>
+                </div>
+        <div class="row1content" th:unless="${parties.getExtraInfo().isBlank() }">
+
+        </div>
+        <div class="row1">
+        <h2>line: up</h2>
+        <div class="venuelist">
+            <div th:each="artist:${parties.getArtists()}">
+                <a class="buttonLook mediumButton"
+                   th:href="@{|/artistdetails/${artist.id}|}"
+                   th:text="${artist.artistName}">artist name</a>
+            </div>
+        </div>
+        <h2>who is going :</h2>
+        <div class="venuelist">
+            <div th:each="animal:${parties.getAnimals()}">
+                <a class="buttonLook mediumButton"
+                   th:href="@{|/animaldetails/${animal.id}|}"
+                   th:text="${animal.getName()}">animal name</a>
+            </div>
+        </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer :: footer">Footer</div>
+
+</body>
+</html>

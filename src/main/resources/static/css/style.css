@@ -58,6 +58,11 @@ a {
     color: #EDC7CF;
     height: 150px;
 }
+
+.freespaceforheader {
+    margin: 150px 0 20px 0;
+}
+
 .navbuttons {
     display: flex;
 }
@@ -79,13 +84,17 @@ a {
 .row1 {
     display: flex;
     position: relative;
-    margin: 100px 0 20px 0;
-    min-height: 500px;
+    margin: 20px 0 20px 0;
+}
+
+.row1 img {
+    width: 100%;
+    height: auto;
 }
 
 .row1content {
     flex-grow: 4;
-    margin: 40px 250px 40px 50px;
+    margin: 0 50px;
 }
 
 .row1content ul {
@@ -94,6 +103,42 @@ a {
 
 .row1content li {
     list-style: none;
+}
+
+.cols2 {
+    position: relative;
+}
+
+.filters {
+    margin: 15px 50px 0 0;
+    float: left;
+    width: 30%;
+}
+
+.onefilter {
+    display: flex;
+    margin: 2px 0;
+}
+
+.onefilter input {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.onefilter input[type="text" i] {
+    width: 15em;
+}
+
+.onefilter input[type="number" i] {
+    width: 5em;
+}
+.onefilter input {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.filtername {
+    width: 4em;
+    text-align: right;
 }
 
 .buttons {
@@ -105,8 +150,7 @@ a {
 
 
 /* links that do or don't look like buttons */
-a.buttonLook {
-    display: block;
+.buttonLook {
     background-color: #EDC7CF;
     color: #6A8E7F;
     text-decoration: none;
@@ -114,16 +158,12 @@ a.buttonLook {
     box-shadow: 1px 1px 1px darkgrey;
 }
 
-a.buttonLook:hover {
+.buttonLook:hover {
     background-color: #6A8E7F;
     color: #EDC7CF;
-    border: solid 1px #edc7cf;
-}
-.actieve{
-    color: darkred;
 }
 
-a.buttonLook:active {
+.buttonLook:active {
     background-color: #6A8E7F;
     color: #EDC7CF;
 }
@@ -134,20 +174,42 @@ a.largeButton {
     padding: 1em;
 }
 
+
 a.mediumButton {
+    display: block;
     margin: 10px auto;
     width: 400px;
     font-size: 1.2em;
     padding: 1em;
 }
-a.smallButton {
-    font-size: 1.5em;
-    padding: 1em;
+
+.venueExtraInfo {
+    font-size: small;
 }
+
+a.smallButton {
+    display: block;
+    font-size: 1em;
+    padding: 0.5em;
+}
+
 a.menuButton {
     margin: 0 10px;
     width: 6em;
-    padding: 0.2em;}
+    padding: 0.2em;
+}
+
+.filterButton {
+    margin: 20px 0;
+    padding: .5em;
+    border: none;
+    font-size: medium;
+}
+
+a.activeFilter {
+    background-color: #f3a4b4;
+    color: #2b3e35;
+}
 
 a.linkLook {
     background-color: transparent;
@@ -159,8 +221,12 @@ a.linkLook:hover {
     color: #989572;
 }
 
+/* list page only */
+.venuelist {
+    float: left;
+}
 
-/* venue page only */
+/* details page only */
 .venueinfo {
 }
 
@@ -169,27 +235,31 @@ a.linkLook:hover {
     font-size: 1em;
     display: flex;
 }
+
 .infoLineName {
     width: 13em;
-    //background-color: cadetblue;
+/ / background-color: cadetblue;
 }
+
 .infoLineValue {
     font-size: 1.2em;
     text-align: left;
-    //background-color: yellow;
+/ / background-color: yellow;
 }
 
 .prevButtonDiv {
-    position: absolute;
-    left: 50px;
-    bottom: 50px;
+    position: fixed;
+    left: 10px;
+    top: 160px;
 }
+
 .nextButtonDiv {
-    position: absolute;
-    right: 50px;
-    bottom: 50px;
+    position: fixed;
+    right: 10px;
+    top: 160px;
 
 }
+
 /* home page only */
 
 .row2 {
@@ -204,12 +274,6 @@ a.linkLook:hover {
     height: 300px;
     padding: 60px 0;
     text-align: center;
-}
-.knop{
-    padding: 10em;
-}
-.knopjes{
-    display: inline;
 }
 
 
